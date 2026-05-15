@@ -3,35 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roadside Help</title>
 
-  <title>Admin Dashboard</title>
-
-  <!-- CSS MUST GO HERE -->
-  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <h1>Admin Dashboard</h1>
+  <h1>Roadside Assistance</h1>
 
-  <div id="list"></div>
+  <div class="container">
+
+    <input id="name" placeholder="Your Name" />
+    <input id="issue" placeholder="What’s the problem?" />
+
+    <button onclick="sendRequest()">Request Help</button>
+
+    <p id="status"></p>
+
+  </div>
 
   <script>
-    async function loadRequests() {
-      const res = await fetch("https://roadside-server.onrender.com/admin/requests");
-      const data = await res.json();
+    const API = "https://roadside-server.onrender.com";
 
-      document.getElementById("list").innerHTML = data.map(r => `
-        <div class="job">
-          <p><b>Name:</b> ${r.name}</p>
-          <p><b>Issue:</b> ${r.issue}</p>
-          <p class="time"><b>Time:</b> ${r.time}</p>
-        </div>
-      `).join("");
+    async function sendRequest() {
+      const name = document.getElementById("name").value;
+      const issue = document.getElementById("issue").value;
+
+      if (!name || !issue) {
+        document.getElementById("status").innerText = "Please fill in all fields";
+        return;
+      }
+
+      try {
+        const res = await fetch(`${API}/request`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ name, issue })
+        });
+
+        const data = await res.json();
+
+        document.getElementById("status").innerText = "Request sent successfully!";
+
+        document.getElementById("name").value = "";
+        document.getElementById("issue").value = "";
+
+      } catch (err) {
+        console.error(err);
+        document.getElementById("status").innerText = "Error sending request";
+      }
     }
-
-    loadRequests();
-    setInterval(loadRequests, 5000);
   </script>
 
 </body>
