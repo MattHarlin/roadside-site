@@ -1,5 +1,5 @@
 const API = "https://roadside-server.onrender.com";
-fetch("https://roadside-server.onrender.com/request", {
+
 async function sendRequest() {
   const name = document.getElementById("name").value;
   const issue = document.getElementById("issue").value;
@@ -25,5 +25,4 @@ async function sendRequest() {
     console.error(err);
     document.getElementById("status").innerText = "Error sending request";
   }
-}
 }
