@@ -1,9 +1,16 @@
+const API = "https://roadside-server.onrender.com";
+
 async function sendRequest() {
   const name = document.getElementById("name").value;
   const issue = document.getElementById("issue").value;
 
+  if (!name || !issue) {
+    document.getElementById("status").innerText = "Fill all fields";
+    return;
+  }
+
   try {
-    const res = await fetch("https://roadside-server.onrender.com/request", {
+    const res = await fetch(`${API}/request`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -11,10 +18,11 @@ async function sendRequest() {
       body: JSON.stringify({ name, issue })
     });
 
-    const data = await res.json();
-    alert("Request sent successfully!");
+    await res.json();
+
+    document.getElementById("status").innerText = "Request sent!";
   } catch (err) {
     console.error(err);
-    alert("Error sending request");
+    document.getElementById("status").innerText = "Error sending request";
   }
 }
