@@ -10,6 +10,7 @@
 
   gtag('config', 'G-WT2CQEDQBN');
 </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Boise Mobile Roadside Assistance | Lockouts & Jump Starts</title>
@@ -23,13 +24,13 @@
     <h1> Mobile Roadside Assistance</h1>
     <h2>Boise & Treasure Valley</h2>
 
-   <a href="tel:208-000-0000"
-   onclick="gtag('event', 'call_click', {
-     event_category: 'engagement',
-     event_label: 'homepage_call_button'
-   });">
-  Call Now
-</a>
+    <a href="tel:208-000-0000"
+      onclick="gtag('event', 'call_click', {
+        event_category: 'engagement',
+        event_label: 'homepage_call_button'
+      });">
+      Call Now
+    </a>
 
     <p class="subtext">
       lockouts • Jump starts • roadside service 
@@ -44,7 +45,19 @@
     <div class="card">🔋 Jump Starts</div>
     <div class="card">🚗 Battery Help</div>
     <div class="card">⚡ Emergency Roadside Assistance</div>
-   <div class="card">🛣️ mobile service</div> 
+    <div class="card">🛣️ mobile service</div> 
+  </section>
+
+  <!-- 🟢 NEW REQUEST FORM (ADDED SAFELY) -->
+  <section class="request">
+    <h2>Request Help</h2>
+
+    <input id="name" placeholder="Your Name">
+    <input id="issue" placeholder="What’s the problem?">
+
+    <button onclick="sendRequest()">Request Assistance</button>
+
+    <p id="status"></p>
   </section>
 
   <!-- SERVICE AREA -->
@@ -52,22 +65,22 @@
     <h2>Service Area</h2>
     <p>Boise • Nampa • Meridian • Caldwell • Ontario</p>
   </section>
-<!-- MAP -->
- <section class="map">
-  <h2>refernce map</h2>
 
-  <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d155366.0744751762!2d-116.45830848329545!3d43.64997539560933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1778732696435!5m2!1sen!2sus" 
-    width="600" 
-    height="450" 
-    style="border:0;" 
-    allowfullscreen="" 
-    loading="lazy" 
-    referrerpolicy="no-referrer-when-downgrade">
-  
-   </iframe>
+  <!-- MAP -->
+  <section class="map">
+    <h2>reference map</h2>
 
-</section>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d155366.0744751762!2d-116.45830848329545!3d43.64997539560933!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1778732696435!5m2!1sen!2sus" 
+      width="600" 
+      height="450" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+  </section>
 
   <!-- TRUST -->
   <section class="trust">
@@ -79,29 +92,30 @@
       <li>Available when you’re stuck</li>
     </ul>
   </section>
-<footer>
-  <p>
-    <a href="terms.html">Terms & Disclaimer</a>
-  </p>
-</footer>
-  <!-- FOOTER -->
+
+  <!-- FOOTER LINKS -->
   <footer>
+    <p>
+      <a href="terms.html">Terms & Disclaimer</a>
+    </p>
     <p>© 2026 Boise Mobile Roadside Assistance</p>
   </footer>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/6a0578101358261c34fe7993/1joilq0f8';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
-<script src="script.js"></script>
+
+  <!-- TAWK CHAT -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/6a0578101358261c34fe7993/1joilq0f8';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+
+  <!-- BACKEND SCRIPT -->
+  <script src="script.js"></script>
+
 </body>
 </html>
-
