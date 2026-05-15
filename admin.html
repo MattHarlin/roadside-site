@@ -22,16 +22,25 @@
     <p id="status"></p>
 
   </div>
-  <h2>Your Location</h2>
+ <h2>Your Current Location</h2>
+<div id="map"></div>
 
-<iframe
-  width="100%"
-  height="300"
-  style="border:0"
-  loading="lazy"
-  allowfullscreen
-  src="https://www.google.com/maps/embed/v1/place?q=boise&key=YOUR_API_KEY">
-</iframe>
+<script>
+navigator.geolocation.getCurrentPosition((pos) => {
+  const lat = pos.coords.latitude;
+  const lng = pos.coords.longitude;
+
+  document.getElementById("map").innerHTML = `
+    <iframe
+      width="100%"
+      height="300"
+      style="border:0"
+      loading="lazy"
+      src="https://maps.google.com/maps?q=${lat},${lng}&z=15&output=embed">
+    </iframe>
+  `;
+});
+</script> 
 
   <script>
     const API = "https://roadside-server.onrender.com";
