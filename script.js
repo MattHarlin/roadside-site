@@ -18,11 +18,15 @@ async function sendRequest() {
       body: JSON.stringify({ name, issue })
     });
 
-    await res.json();
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.error || "Server error");
+    }
 
     document.getElementById("status").innerText = "Request sent!";
   } catch (err) {
-    console.error(err);
+    console.error("ERROR:", err);
     document.getElementById("status").innerText = "Error sending request";
   }
 }
