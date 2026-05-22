@@ -1,4 +1,4 @@
-const API = "https://roadside-server.onrender.com";
+const API = "";
 
 async function sendRequest() {
   const name = document.getElementById("name").value;
